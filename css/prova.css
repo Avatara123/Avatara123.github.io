@@ -66,3 +66,16 @@ span {
 	background-attachment: fixed;
 	background-size: cover;
 }
+
+/*
+
+   VARIOUS
+
+*/
+.canvasTree {
+	display: block;
+	margin: 0 auto;
+	position: relative;
+	left: -610px !important;
+	top: 93px !important;
+}
