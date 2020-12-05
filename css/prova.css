@@ -78,4 +78,5 @@ span {
 	position: relative;
 	left: -610px !important;
 	top: 93px !important;
+	background: transparent !important;
 }
