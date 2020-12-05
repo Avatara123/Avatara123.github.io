@@ -51,7 +51,8 @@ span {
 	background-image: url('https://i.pinimg.com/originals/a0/fe/a9/a0fea991287cf41b6b9c4aa16196517f.jpg');
 }
 .outerBG_03 {
-	background-image: url('https://wallpapercave.com/wp/zrTH8ob.jpg');
+	background-color: #ff7878;
+	background-image: linear-gradient(315deg, #ff7878 0%, #74d680 74%);
 }
 .outerBG_04 {
 	background-image: url('https://wallpapercave.com/wp/sIdFy5n.jpg');
