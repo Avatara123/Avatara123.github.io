@@ -5,7 +5,8 @@
 */
 body {
 	background: linear-gradient(to bottom right, #000011, #053d5c);
-	min-height: 100vh;
+	/* min-height: 100vh; */
+	height: 1080px;
 	overflow: hidden;
 }
 * {
