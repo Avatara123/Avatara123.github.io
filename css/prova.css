@@ -5,8 +5,7 @@
 */
 body {
 	background: linear-gradient(to bottom right, #000011, #053d5c);
-	/* min-height: 100vh; */
-	height: 1080px;
+	min-height: 100vh;
 	overflow: hidden;
 }
 * {
@@ -40,7 +39,9 @@ span {
 .outerBG {
 	width: 100%;
 	height: 100%;
+	background-position: center center;
 	background-repeat: no-repeat;
+	background-attachment: fixed;
 	background-size: cover;
 }
 .outerBG_01 {
