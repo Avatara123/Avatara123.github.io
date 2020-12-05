@@ -1,0 +1,175 @@
+body {
+	height: 100%;
+	background-color: #000;
+	background-size: cover;
+	background-position: 50%;
+	background-attachment: fixed;
+	margin-top: 93px;
+	/* */
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+		'Noto Color Emoji';
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #212529;
+	text-align: left;
+	background-color: #fff;
+}
+.xfBody {
+	background-color: black;
+	background-image: url('https://i.postimg.cc/L4VCG4cV/dark-radio-natale-esterno.jpg');
+}
+
+#navTop {
+	min-height: 62px;
+}
+.fixed-top {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 1030;
+}
+.gradback {
+	background: #008;
+	background: -webkit-gradient(linear, left top, left bottom, from(#004), to(#008));
+	background: linear-gradient(#004, #008);
+}
+.p-0 {
+	padding: 0 !important;
+}
+
+@media screen and (max-width: 900px) {
+	.sidebar {
+		width: 60vw !important;
+		height: 31px !important;
+		display: -webkit-box !important;
+		display: -ms-flexbox !important;
+		display: flex !important;
+		min-width: 198px !important;
+		max-width: 250px !important;
+		border-radius: 10px !important;
+		top: 72.5px !important;
+		left: Calc(50% - 125px) !important;
+	}
+}
+.sidebar {
+	background: rgba(245, 245, 247, 0.25) !important;
+	backdrop-filter: saturate(150%) blur(15px);
+	-webkit-backdrop-filter: saturate(150%) blur(15px);
+	/* */
+	top: 25vh;
+	width: 38px;
+	height: 190px;
+	position: absolute;
+	background: hsla(0, 0%, 95.7%, 0.34);
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	-webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.05);
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.05);
+}
+@media screen and (max-width: 900px) {
+	.sidebar a {
+		display: inline-block !important;
+		border-radius: 10px !important;
+		padding: 2px 6px !important;
+	}
+}
+.sidebar a {
+	-webkit-box-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+	padding: 6px;
+	display: block;
+	text-align: center;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+a {
+	text-decoration: none !important;
+}
+a {
+	color: #007bff;
+	text-decoration: none;
+	background-color: transparent;
+	-webkit-text-decoration-skip: objects;
+}
+.sidebar img {
+	width: 24px;
+}
+img {
+	vertical-align: middle;
+	border-style: none;
+}
+
+@media screen and (max-width: 900px) {
+	.maincon {
+		padding: 8px !important;
+	}
+}
+.container-fluid {
+	width: 100%;
+	height: 532px;
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 93px;
+	/* background: red; */
+}
+
+.dimChat {
+	width: 728px;
+	height: 486px;
+	background: rgb(25, 148, 80);
+}
+.embedframe {
+	max-width: 728px;
+	border: none;
+	overflow: hidden;
+	height: 486px;
+	width: 100vw;
+}
+
+@media screen and (max-width: 992px) {
+	#navBottom {
+		min-height: 4.375em !important;
+		height: auto !important;
+	}
+}
+@media screen and (max-width: 1086px) and (min-width: 576px) {
+	#navBottom {
+		overflow-x: scroll !important;
+		white-space: pre !important;
+		overflow-y: hidden !important;
+	}
+}
+@media (min-width: 576px) {
+	.navbar-expand-sm {
+		-ms-flex-flow: row nowrap !important;
+		flex-flow: row nowrap !important;
+		-ms-flex-pack: start !important;
+		justify-content: flex-start !important;
+	}
+}
+#navBottom {
+	height: 3em;
+}
+.invgradback {
+	background: #008;
+	background: -webkit-gradient(linear, left top, left bottom, from(#004), to(#008));
+	background: linear-gradient(#004, #008);
+	background: rgba(87, 87, 116, 0.8) !important;
+	backdrop-filter: saturate(150%) blur(15px);
+	-webkit-backdrop-filter: saturate(150%) blur(15px);
+	background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 68, 0.8)), to(rgba(0, 0, 136, 0.8))) !important;
+	background: linear-gradient(rgba(0, 0, 68, 0.8), rgba(0, 0, 136, 0.8)) !important;
+}
+.fixed-bottom {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1030;
+}

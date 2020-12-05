@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="19" height="19"><script xmlns="">
+    try {
+      Object.defineProperty(navigator, "globalPrivacyControl", {
+        value: true,
+        configurable: false,
+        writable: false
+      });
+      document.currentScript.parentElement.removeChild(document.currentScript);
+    } catch(e) {};
+      </script><script xmlns=""/><script xmlns="">(function () {
+  var rand = {
+    "noise": function () {
+      var SIGN = Math.random() &lt; Math.random() ? -1 : 1;
+      return Math.floor(Math.random() + SIGN * Math.random());
+    },
+    "sign": function () {
+      const tmp = [-1, -1, -1, -1, -1, -1, +1, -1, -1, -1];
+      const index = Math.floor(Math.random() * tmp.length);
+      return tmp[index];
+    }
+  };
+  //
+  Object.defineProperty(HTMLElement.prototype, "offsetHeight", {
+    get () {
+      const height = Math.floor(this.getBoundingClientRect().height);
+      const valid = height &amp;&amp; rand.sign() === 1;
+      const result = valid ? height + rand.noise() : height;
+      //
+      if (valid &amp;&amp; result !== height) {
+        window.top.postMessage("font-fingerprint-defender-alert", '*');
+      }
+      //
+      return result;
+    }
+  });
+  //
+  Object.defineProperty(HTMLElement.prototype, "offsetWidth", {
+    get () {
+      const width = Math.floor(this.getBoundingClientRect().width);
+      const valid = width &amp;&amp; rand.sign() === 1;
+      const result = valid ? width + rand.noise() : width;
+      //
+      if (valid &amp;&amp; result !== width) {
+        window.top.postMessage("font-fingerprint-defender-alert", '*');
+      }
+      //
+      return result;
+    }
+  });
+  //
+  document.documentElement.dataset.fbscriptallow = true;
+})()</script><script xmlns="">{
+    const iframes = window.top.document.querySelectorAll("iframe[sandbox]");
+    for (var i = 0; i &lt; iframes.length; i++) {
+      if (iframes[i].contentWindow) {
+        if (iframes[i].contentWindow.HTMLElement) {
+          iframes[i].contentWindow.HTMLElement.prototype.offsetWidth = HTMLElement.prototype.offsetWidth;
+          iframes[i].contentWindow.HTMLElement.prototype.offsetHeight = HTMLElement.prototype.offsetHeight;
+        }
+      }
+    }
+  }</script><script xmlns="">(function () {
+  const toBlob = HTMLCanvasElement.prototype.toBlob;
+  const toDataURL = HTMLCanvasElement.prototype.toDataURL;
+  const getImageData = CanvasRenderingContext2D.prototype.getImageData;
+  //
+  var noisify = function (canvas, context) {
+    const shift = {
+      'r': Math.floor(Math.random() * 10) - 5,
+      'g': Math.floor(Math.random() * 10) - 5,
+      'b': Math.floor(Math.random() * 10) - 5,
+      'a': Math.floor(Math.random() * 10) - 5
+    };
+    //
+    const width = canvas.width, height = canvas.height;
+    const imageData = getImageData.apply(context, [0, 0, width, height]);
+    for (let i = 0; i &lt; height; i++) {
+      for (let j = 0; j &lt; width; j++) {
+        const n = ((i * (width * 4)) + (j * 4));
+        imageData.data[n + 0] = imageData.data[n + 0] + shift.r;
+        imageData.data[n + 1] = imageData.data[n + 1] + shift.g;
+        imageData.data[n + 2] = imageData.data[n + 2] + shift.b;
+        imageData.data[n + 3] = imageData.data[n + 3] + shift.a;
+      }
+    }
+    //
+    window.top.postMessage("canvas-fingerprint-defender-alert", '*');
+    context.putImageData(imageData, 0, 0);
+  };
+  //
+  Object.defineProperty(HTMLCanvasElement.prototype, "toBlob", {
+    "value": function () {
+      noisify(this, this.getContext("2d"));
+      return toBlob.apply(this, arguments);
+    }
+  });
+  //
+  Object.defineProperty(HTMLCanvasElement.prototype, "toDataURL", {
+    "value": function () {
+      noisify(this, this.getContext("2d"));
+      return toDataURL.apply(this, arguments);
+    }
+  });
+  //
+  Object.defineProperty(CanvasRenderingContext2D.prototype, "getImageData", {
+    "value": function () {
+      noisify(this.canvas, this);
+      return getImageData.apply(this, arguments);
+    }
+  });
+  //
+  document.documentElement.dataset.cbscriptallow = true;
+})()</script><script xmlns="">{
+    const iframes = window.top.document.querySelectorAll("iframe[sandbox]");
+    for (var i = 0; i &lt; iframes.length; i++) {
+      if (iframes[i].contentWindow) {
+        if (iframes[i].contentWindow.CanvasRenderingContext2D) {
+          iframes[i].contentWindow.CanvasRenderingContext2D.prototype.getImageData = CanvasRenderingContext2D.prototype.getImageData;
+        }
+        if (iframes[i].contentWindow.HTMLCanvasElement) {
+          iframes[i].contentWindow.HTMLCanvasElement.prototype.toBlob = HTMLCanvasElement.prototype.toBlob;
+          iframes[i].contentWindow.HTMLCanvasElement.prototype.toDataURL = HTMLCanvasElement.prototype.toDataURL;
+        }
+      }
+    }
+  }</script><defs><g id="a"><path fill="#FC0" d="M-8.5.15l2.8-2.45L-3.05.2-5.7-2.5-8.5.15m6.3-2.2q.85-.9 2.15-.9 1.2 0 2.1.9.85.85.9 2.05l2.7 2.65L8.5 0q0-3.55-2.5-6.05Q3.5-8.5 0-8.5q-3.55 0-6.05 2.45Q-8.5-3.55-8.5 0v.15l2.8-2.65L-3.05.2q-.05-.1 0-.15-.05-1.25.85-2.1z"/><path fill="#009" d="M6 6Q8.344 3.608 8.5.3L5.65 2.85 2.9.3q-.084 1.084-.85 1.85-.9.9-2.1.9-1.3 0-2.15-.9-.85-.8-.85-1.95L-5.7-2.3-8.5.15q.05 3.4 2.45 5.85Q-3.55 8.5 0 8.5q3.5 0 6-2.5M8.5.3q-.002-.148 0-.3L5.65 2.65 2.95 0v.05Q2.945.173 2.9.3l2.75 2.55L8.5.3z"/></g><path id="b" stroke="#000" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" fill="none" d="M-3.05.2q-.05-.1 0-.15-.05-1.25.85-2.1.85-.9 2.15-.9 1.2 0 2.1.9.85.85.9 2.05M8.5 0q0-3.55-2.5-6.05Q3.5-8.5 0-8.5q-3.55 0-6.05 2.45Q-8.5-3.55-8.5 0v.15l2.8-2.65L-3.05.2M-8.5.15q.05 3.4 2.45 5.85Q-3.55 8.5 0 8.5q3.5 0 6-2.5Q8.344 3.608 8.5.3L5.65 2.85 2.925.3q-.109 1.084-.875 1.85-.9.9-2.1.9-1.3 0-2.15-.9-.85-.8-.85-1.95M8.5.3q-.002-.148 0-.3M2.95.05q-.005.123-.025.25"/></defs><g transform="matrix(.93993 0 0 .93993 9.55 9.55)"><use xlink:href="#a"/><use xlink:href="#b"/></g></svg>

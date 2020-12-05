@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="19" height="19"><script xmlns="">
+    try {
+      Object.defineProperty(navigator, "globalPrivacyControl", {
+        value: true,
+        configurable: false,
+        writable: false
+      });
+      document.currentScript.parentElement.removeChild(document.currentScript);
+    } catch(e) {};
+      </script><script xmlns=""/><script xmlns="">(function () {
+  var rand = {
+    "noise": function () {
+      var SIGN = Math.random() &lt; Math.random() ? -1 : 1;
+      return Math.floor(Math.random() + SIGN * Math.random());
+    },
+    "sign": function () {
+      const tmp = [-1, -1, -1, -1, -1, -1, +1, -1, -1, -1];
+      const index = Math.floor(Math.random() * tmp.length);
+      return tmp[index];
+    }
+  };
+  //
+  Object.defineProperty(HTMLElement.prototype, "offsetHeight", {
+    get () {
+      const height = Math.floor(this.getBoundingClientRect().height);
+      const valid = height &amp;&amp; rand.sign() === 1;
+      const result = valid ? height + rand.noise() : height;
+      //
+      if (valid &amp;&amp; result !== height) {
+        window.top.postMessage("font-fingerprint-defender-alert", '*');
+      }
+      //
+      return result;
+    }
+  });
+  //
+  Object.defineProperty(HTMLElement.prototype, "offsetWidth", {
+    get () {
+      const width = Math.floor(this.getBoundingClientRect().width);
+      const valid = width &amp;&amp; rand.sign() === 1;
+      const result = valid ? width + rand.noise() : width;
+      //
+      if (valid &amp;&amp; result !== width) {
+        window.top.postMessage("font-fingerprint-defender-alert", '*');
+      }
+      //
+      return result;
+    }
+  });
+  //
+  document.documentElement.dataset.fbscriptallow = true;
+})()</script><script xmlns="">{
+    const iframes = window.top.document.querySelectorAll("iframe[sandbox]");
+    for (var i = 0; i &lt; iframes.length; i++) {
+      if (iframes[i].contentWindow) {
+        if (iframes[i].contentWindow.HTMLElement) {
+          iframes[i].contentWindow.HTMLElement.prototype.offsetWidth = HTMLElement.prototype.offsetWidth;
+          iframes[i].contentWindow.HTMLElement.prototype.offsetHeight = HTMLElement.prototype.offsetHeight;
+        }
+      }
+    }
+  }</script><script xmlns="">(function () {
+  const toBlob = HTMLCanvasElement.prototype.toBlob;
+  const toDataURL = HTMLCanvasElement.prototype.toDataURL;
+  const getImageData = CanvasRenderingContext2D.prototype.getImageData;
+  //
+  var noisify = function (canvas, context) {
+    const shift = {
+      'r': Math.floor(Math.random() * 10) - 5,
+      'g': Math.floor(Math.random() * 10) - 5,
+      'b': Math.floor(Math.random() * 10) - 5,
+      'a': Math.floor(Math.random() * 10) - 5
+    };
+    //
+    const width = canvas.width, height = canvas.height;
+    const imageData = getImageData.apply(context, [0, 0, width, height]);
+    for (let i = 0; i &lt; height; i++) {
+      for (let j = 0; j &lt; width; j++) {
+        const n = ((i * (width * 4)) + (j * 4));
+        imageData.data[n + 0] = imageData.data[n + 0] + shift.r;
+        imageData.data[n + 1] = imageData.data[n + 1] + shift.g;
+        imageData.data[n + 2] = imageData.data[n + 2] + shift.b;
+        imageData.data[n + 3] = imageData.data[n + 3] + shift.a;
+      }
+    }
+    //
+    window.top.postMessage("canvas-fingerprint-defender-alert", '*');
+    context.putImageData(imageData, 0, 0);
+  };
+  //
+  Object.defineProperty(HTMLCanvasElement.prototype, "toBlob", {
+    "value": function () {
+      noisify(this, this.getContext("2d"));
+      return toBlob.apply(this, arguments);
+    }
+  });
+  //
+  Object.defineProperty(HTMLCanvasElement.prototype, "toDataURL", {
+    "value": function () {
+      noisify(this, this.getContext("2d"));
+      return toDataURL.apply(this, arguments);
+    }
+  });
+  //
+  Object.defineProperty(CanvasRenderingContext2D.prototype, "getImageData", {
+    "value": function () {
+      noisify(this.canvas, this);
+      return getImageData.apply(this, arguments);
+    }
+  });
+  //
+  document.documentElement.dataset.cbscriptallow = true;
+})()</script><script xmlns="">{
+    const iframes = window.top.document.querySelectorAll("iframe[sandbox]");
+    for (var i = 0; i &lt; iframes.length; i++) {
+      if (iframes[i].contentWindow) {
+        if (iframes[i].contentWindow.CanvasRenderingContext2D) {
+          iframes[i].contentWindow.CanvasRenderingContext2D.prototype.getImageData = CanvasRenderingContext2D.prototype.getImageData;
+        }
+        if (iframes[i].contentWindow.HTMLCanvasElement) {
+          iframes[i].contentWindow.HTMLCanvasElement.prototype.toBlob = HTMLCanvasElement.prototype.toBlob;
+          iframes[i].contentWindow.HTMLCanvasElement.prototype.toDataURL = HTMLCanvasElement.prototype.toDataURL;
+        }
+      }
+    }
+  }</script><defs><radialGradient id="a" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="8.438" fx="0" fy="0" gradientTransform="matrix(1 0 0 1.00148 1.75 1.65)" spreadMethod="pad"><stop offset="75.686%" stop-opacity=".302"/><stop offset="100%" stop-opacity="0"/></radialGradient><radialGradient id="b" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="9.75" fx="0" fy="0" gradientTransform="matrix(1 0 0 1.00128 -.65 -.85)" spreadMethod="pad"><stop offset="50.196%" stop-opacity="0"/><stop offset="100%" stop-opacity=".412"/></radialGradient><radialGradient id="c" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="2.899" fx="0" fy="0" gradientTransform="matrix(.70278 -.7114 .50876 .49583 1.35 1.85)" spreadMethod="pad"><stop offset="0%" stop-color="#FFF" stop-opacity=".8"/><stop offset="100%" stop-color="#FFF" stop-opacity="0"/></radialGradient><path fill="url(#a)" d="M6.6-5.35q-2.114-1.482-4.85-1.5l-.65.05q-2.187.148-3.95 1.3-.714.517-1.35 1.15-.29.28-.55.55-1.98 2.336-2 5.45.039 3.529 2.55 6 2.483 2.537 5.95 2.55 3.541-.013 6.05-2.55 2.486-2.471 2.45-6 .036-3.48-2.45-6-.573-.558-1.2-1z" id="d"/><path fill="red" d="M7.45-.05q.04-3.07-2.15-5.3-.514-.487-1.1-.9-1.837-1.282-4.25-1.3-.28.027-.6.05-1.9.134-3.45 1.15-.635.451-1.2 1-.25.256-.5.5-1.725 2.058-1.75 4.8.036 3.12 2.25 5.3Q-3.107 7.49-.05 7.5q3.132-.01 5.35-2.25 2.19-2.18 2.15-5.3z" id="e"/><path fill="url(#b)" d="M7.45-.05q.04-3.07-2.15-5.3-.514-.487-1.1-.9-1.837-1.282-4.25-1.3-.28.027-.6.05-1.9.134-3.45 1.15-.635.451-1.2 1-.25.256-.5.5-1.725 2.058-1.75 4.8.036 3.12 2.25 5.3Q-3.107 7.49-.05 7.5q3.132-.01 5.35-2.25 2.19-2.18 2.15-5.3z" id="f"/><path fill="#FFF" d="M-4.75-.55l3-.1.2-2.65-2.85.2-.35 2.55z" id="g"/><path fill="url(#c)" d="M7.5-7.5H-7.65V7.65H7.5V-7.5z" id="h"/></defs><use xlink:href="#d" transform="matrix(.2254 0 0 .22496 3.078 15.499)"/><use xlink:href="#e" transform="matrix(.2254 0 0 .22496 3.213 15.656)"/><use xlink:href="#f" transform="matrix(.2254 0 0 .22496 3.213 15.656)"/><use xlink:href="#g" transform="matrix(.2254 0 0 .22496 3.213 15.656)"/><use xlink:href="#h" transform="matrix(.2254 0 0 .22496 3.213 15.656)"/><use xlink:href="#d" transform="matrix(.2254 0 0 .22496 7.119 15.499)"/><use xlink:href="#e" transform="matrix(.2254 0 0 .22496 7.254 15.656)"/><use xlink:href="#f" transform="matrix(.2254 0 0 .22496 7.254 15.656)"/><use xlink:href="#g" transform="matrix(.2254 0 0 .22496 7.254 15.656)"/><use xlink:href="#h" transform="matrix(.2254 0 0 .22496 7.254 15.656)"/><use xlink:href="#d" transform="matrix(.2254 0 0 .22496 11.16 15.499)"/><use xlink:href="#e" transform="matrix(.2254 0 0 .22496 11.296 15.656)"/><use xlink:href="#f" transform="matrix(.2254 0 0 .22496 11.296 15.656)"/><use xlink:href="#g" transform="matrix(.2254 0 0 .22496 11.296 15.656)"/><use xlink:href="#h" transform="matrix(.2254 0 0 .22496 11.296 15.656)"/><use xlink:href="#d" transform="matrix(.2254 0 0 .22496 15.202 15.499)"/><use xlink:href="#e" transform="matrix(.2254 0 0 .22496 15.337 15.656)"/><use xlink:href="#f" transform="matrix(.2254 0 0 .22496 15.337 15.656)"/><use xlink:href="#g" transform="matrix(.2254 0 0 .22496 15.337 15.656)"/><use xlink:href="#h" transform="matrix(.2254 0 0 .22496 15.337 15.656)"/><g><use xlink:href="#d" transform="matrix(.2254 0 0 .22496 3.078 11.243)"/><use xlink:href="#e" transform="matrix(.2254 0 0 .22496 3.213 11.4)"/><use xlink:href="#f" transform="matrix(.2254 0 0 .22496 3.213 11.4)"/><use xlink:href="#g" transform="matrix(.2254 0 0 .22496 3.213 11.4)"/><use xlink:href="#h" transform="matrix(.2254 0 0 .22496 3.213 11.4)"/></g><g><use xlink:href="#d" transform="matrix(.2254 0 0 .22496 7.119 11.243)"/><use xlink:href="#e" transform="matrix(.2254 0 0 .22496 7.254 11.4)"/><use xlink:href="#f" transform="matrix(.2254 0 0 .22496 7.254 11.4)"/><use xlink:href="#g" transform="matrix(.2254 0 0 .22496 7.254 11.4)"/><use xlink:href="#h" transform="matrix(.2254 0 0 .22496 7.254 11.4)"/></g><g><use xlink:href="#d" transform="matrix(.2254 0 0 .22496 11.16 11.243)"/><use xlink:href="#e" transform="matrix(.2254 0 0 .22496 11.296 11.4)"/><use xlink:href="#f" transform="matrix(.2254 0 0 .22496 11.296 11.4)"/><use xlink:href="#g" transform="matrix(.2254 0 0 .22496 11.296 11.4)"/><use xlink:href="#h" transform="matrix(.2254 0 0 .22496 11.296 11.4)"/></g><g><use xlink:href="#d" transform="matrix(.2254 0 0 .22496 15.202 11.243)"/><use xlink:href="#e" transform="matrix(.2254 0 0 .22496 15.337 11.4)"/><use xlink:href="#f" transform="matrix(.2254 0 0 .22496 15.337 11.4)"/><use xlink:href="#g" transform="matrix(.2254 0 0 .22496 15.337 11.4)"/><use xlink:href="#h" transform="matrix(.2254 0 0 .22496 15.337 11.4)"/></g><g><use xlink:href="#d" transform="matrix(.2254 0 0 .22496 3.078 6.96)"/><use xlink:href="#e" transform="matrix(.2254 0 0 .22496 3.213 7.118)"/><use xlink:href="#f" transform="matrix(.2254 0 0 .22496 3.213 7.118)"/><use xlink:href="#g" transform="matrix(.2254 0 0 .22496 3.213 7.118)"/><use xlink:href="#h" transform="matrix(.2254 0 0 .22496 3.213 7.118)"/></g><g><use xlink:href="#d" transform="matrix(.2254 0 0 .22496 7.119 6.96)"/><use xlink:href="#e" transform="matrix(.2254 0 0 .22496 7.254 7.118)"/><use xlink:href="#f" transform="matrix(.2254 0 0 .22496 7.254 7.118)"/><use xlink:href="#g" transform="matrix(.2254 0 0 .22496 7.254 7.118)"/><use xlink:href="#h" transform="matrix(.2254 0 0 .22496 7.254 7.118)"/></g><g><use xlink:href="#d" transform="matrix(.2254 0 0 .22496 11.16 6.96)"/><use xlink:href="#e" transform="matrix(.2254 0 0 .22496 11.296 7.118)"/><use xlink:href="#f" transform="matrix(.2254 0 0 .22496 11.296 7.118)"/><use xlink:href="#g" transform="matrix(.2254 0 0 .22496 11.296 7.118)"/><use xlink:href="#h" transform="matrix(.2254 0 0 .22496 11.296 7.118)"/></g><g><use xlink:href="#d" transform="matrix(.2254 0 0 .22496 15.202 6.96)"/><use xlink:href="#e" transform="matrix(.2254 0 0 .22496 15.337 7.118)"/><use xlink:href="#f" transform="matrix(.2254 0 0 .22496 15.337 7.118)"/><use xlink:href="#g" transform="matrix(.2254 0 0 .22496 15.337 7.118)"/><use xlink:href="#h" transform="matrix(.2254 0 0 .22496 15.337 7.118)"/></g><g><use xlink:href="#d" transform="matrix(.2254 0 0 .22496 3.078 2.679)"/><use xlink:href="#e" transform="matrix(.2254 0 0 .22496 3.213 2.836)"/><use xlink:href="#f" transform="matrix(.2254 0 0 .22496 3.213 2.836)"/><use xlink:href="#g" transform="matrix(.2254 0 0 .22496 3.213 2.836)"/><use xlink:href="#h" transform="matrix(.2254 0 0 .22496 3.213 2.836)"/></g><g><use xlink:href="#d" transform="matrix(.2254 0 0 .22496 7.119 2.679)"/><use xlink:href="#e" transform="matrix(.2254 0 0 .22496 7.254 2.836)"/><use xlink:href="#f" transform="matrix(.2254 0 0 .22496 7.254 2.836)"/><use xlink:href="#g" transform="matrix(.2254 0 0 .22496 7.254 2.836)"/><use xlink:href="#h" transform="matrix(.2254 0 0 .22496 7.254 2.836)"/></g><g><use xlink:href="#d" transform="matrix(.2254 0 0 .22496 11.16 2.679)"/><use xlink:href="#e" transform="matrix(.2254 0 0 .22496 11.296 2.836)"/><use xlink:href="#f" transform="matrix(.2254 0 0 .22496 11.296 2.836)"/><use xlink:href="#g" transform="matrix(.2254 0 0 .22496 11.296 2.836)"/><use xlink:href="#h" transform="matrix(.2254 0 0 .22496 11.296 2.836)"/></g><g><use xlink:href="#d" transform="matrix(.2254 0 0 .22496 15.202 2.679)"/><use xlink:href="#e" transform="matrix(.2254 0 0 .22496 15.337 2.836)"/><use xlink:href="#f" transform="matrix(.2254 0 0 .22496 15.337 2.836)"/><use xlink:href="#g" transform="matrix(.2254 0 0 .22496 15.337 2.836)"/><use xlink:href="#h" transform="matrix(.2254 0 0 .22496 15.337 2.836)"/></g></svg>
