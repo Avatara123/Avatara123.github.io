@@ -72,7 +72,7 @@ span {
    VARIOUS
 
 */
-.canvasTree {
+canvas.canvasTree {
 	display: block;
 	margin: 0 auto;
 	position: relative;
