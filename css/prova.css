@@ -23,6 +23,7 @@ body {
 
 #navTop {
 	min-height: 62px;
+	background: transparent !important;
 }
 .fixed-top {
 	position: fixed;
@@ -155,6 +156,7 @@ img {
 }
 #navBottom {
 	height: 3em;
+	background: transparent !important;
 }
 .invgradback {
 	background: #008;
