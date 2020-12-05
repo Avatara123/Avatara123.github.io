@@ -156,7 +156,7 @@ img {
 }
 #navBottom {
 	height: 3em;
-	background: transparent !important;
+	display: none;
 }
 .invgradback {
 	background: #008;
