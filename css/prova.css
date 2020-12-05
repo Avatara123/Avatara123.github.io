@@ -23,7 +23,7 @@ body {
 
 #navTop {
 	min-height: 62px;
-	background: transparent !important;
+	display: none !important;
 }
 .fixed-top {
 	position: fixed;
@@ -118,6 +118,7 @@ img {
 	margin-left: auto;
 	margin-top: 93px;
 	/* background: red; */
+	display: none !important;
 }
 
 .dimChat {
