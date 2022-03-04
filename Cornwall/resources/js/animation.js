@@ -49,7 +49,7 @@ Image22.src=grphcs[22]="./resources/img/rune_v2/23.png";
 Image23=new Image();
 Image23.src=grphcs[23]="./resources/img/rune_v2/24.png";
 
-Amount=28; //Smoothness depends on image file size, the smaller the size the more you can use!
+Amount=32; //Smoothness depends on image file size, the smaller the size the more you can use!
 Ypos=new Array();
 Xpos=new Array();
 Speed=new Array();
